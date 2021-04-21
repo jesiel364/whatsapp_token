@@ -1,0 +1,81 @@
+FloatLayout:
+	pos_hint: {'top': .999, 'right': .999}
+	size_hint: .999,.999
+	Label:
+		text: 'Gerador de token para Whatsapp.\nInsira o número e será e\n será gerado um link para o WhatsApp.'
+		pos_hint: {'center_y': .9}
+
+	FloatLayout:
+		pos_hint: {'center_x': .5, 'center_y': .5}
+		size_hint: .8,.6
+
+		canvas:
+			Color:
+				rgba: (152/255, 214/255, 208/255,0.3 )
+			RoundedRectangle:
+				radius: [40]
+				size: self.size
+				pos: self.pos
+		
+		Label:
+			font_size: '26sp'
+			text: 'Número'
+			size_hint: .5,.2
+			pos_hint: {'center_x': .5, 'center_y': .8}
+		
+		TextInput:
+			pos_hint: {'center_x': .5, 'center_y': .7}
+			size_hint: .7,.1
+			id: numero
+		
+		Button:
+			text: 'Gerar'
+			font_size: '25sp'
+			pos_hint: {'center_x': .5, 'center_y': .4}
+			size_hint: .45,.15
+			on_release:
+				app.set_text()
+			background_color: (0,0,0,0)
+			background_normal: ''
+			canvas.before:
+				Color:
+					rgba: (115/255, 119/255, 238/255,1)
+				RoundedRectangle:
+					radius: [40]
+					pos: self.pos
+					size: self.size
+		Label:
+			pos_hint: {'center_x': .5, 'center_y': .15}
+			size_hint: .8,.15
+			text: ''
+			color:
+			id: label
+			border_radius: 40
+			
+			canvas.before:
+				Color:
+					rgba: (167/255, 255/255, 131/255, 1)
+				Line:
+					rounded_rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1], self.border_radius)
+					width: 3
+					
+		Image:	
+			source: 'logo.png'
+			size: 1000,1000
+			size_hint: .3,.3
+			pos_hint: {'center_x': .5, 'y': .8}
+			
+		CheckBox:
+			id: check
+			size: 200,200
+			size_hint: .2,.2
+			pos_hint: {'center_x': .3, 'y': .45}
+			color: (1,1,0,1)
+			active: True
+			
+		Label:
+			text: 'DDD (95)'
+			font_size: '22sp'
+			size_hint: .5, .2
+			pos_hint: {'center_x': .5, 'y': .45}
+		
